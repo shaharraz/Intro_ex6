@@ -1,7 +1,9 @@
 from screen import Screen
 import sys
+import random
 
 DEFAULT_ASTEROIDS_NUM = 5
+INIT_DEGREE = 0
 
 
 class GameRunner:
@@ -13,6 +15,10 @@ class GameRunner:
         self.__screen_max_y = Screen.SCREEN_MAX_Y
         self.__screen_min_x = Screen.SCREEN_MIN_X
         self.__screen_min_y = Screen.SCREEN_MIN_Y
+
+        x = random.randint(self.__screen_min_x, self.__screen_max_x)
+        y = random.randint(self.__screen_min_y, self.__screen_max_y)
+        Screen.draw_ship(x,y,INIT_DEGREE)
 
     def run(self):
         self._do_loop()
